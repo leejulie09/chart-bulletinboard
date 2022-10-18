@@ -16,7 +16,7 @@ function GraphChildren() {
         "https://api.odcloud.kr/api/15080193/v1/uddi:9e0dbb8b-6eb7-4f72-ab7b-8d74844c2dc5?page=1&perPage=8&serviceKey=tOKMZ%2FmDsBNm%2FcPuRjc1o8dcTXlINXbXWOZuqonOeaTFJWG2pZezpQVsyLeAd03MX71QZSX3%2FSzNkpHSPGXJGg%3D%3D"
       );
       const json = await res.json();
-      console.log(json.data.map((i) => i["구분 점수"]));
+      console.log(json);
       setTestData(json.data.map((i) => i["구분 점수"]));
       setTestData_man(json.data.map((i) => i["인원(명)"]));
     })();
