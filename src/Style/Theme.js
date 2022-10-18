@@ -9,6 +9,7 @@ const colors = {
   sidebar_backgroundColor: "#222132",
   description_fontColor: "white",
   title_fonyColor: "#c1c0ce",
+  accent_fonyColor: "#b300ff",
 };
 const device = {
   mobileS: `only screen and (max-width: 290px)`,
