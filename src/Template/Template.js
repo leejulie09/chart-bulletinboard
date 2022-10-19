@@ -36,6 +36,7 @@ const SideBarContainer = styled.div`
   width: ${(props) => props.foldAndSpreadWidth};
   min-width: ${(props) => props.foldAndSpreadWidth};
   height: 100vh;
+  min-height: 100vh;
   background-color: ${({ theme }) => theme.colors.sidebar_backgroundColor};
   border-right: ${({ theme }) => theme.stlyeSet.border};
 `;
@@ -44,6 +45,7 @@ const SideBarWrapper = styled.div`
   flex-direction: column;
   width: 100%;
   height: 100%;
+  min-height: 40rem;
 `;
 const LogoBox = styled.div`
   display: flex;

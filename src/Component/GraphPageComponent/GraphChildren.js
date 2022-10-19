@@ -1,7 +1,13 @@
 import styled from "styled-components";
 import { useEffect } from "react";
 
+<<<<<<< HEAD
 function GraphChildren() {
+=======
+
+function GraphChildren() {
+
+>>>>>>> main
   useEffect(() => {
     (async () => {
       const res = await fetch(
@@ -9,12 +15,26 @@ function GraphChildren() {
       );
       const json = await res.json();
       console.log(json);
+<<<<<<< HEAD
     })();
   }, []);
 
   return (
     <Container>
       <Wrapper></Wrapper>
+=======
+    
+    })();
+  }, []);
+
+
+
+  return (
+    <Container>
+      <Wrapper>
+    
+      </Wrapper>
+>>>>>>> main
     </Container>
   );
 }
