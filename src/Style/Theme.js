@@ -11,6 +11,7 @@ const colors = {
   title_fonyColor: "#c1c0ce",
   accent_fonyColor: "#b300ff",
 };
+
 const device = {
   mobileS: `only screen and (max-width: 290px)`,
   mobile: `only screen and (max-width: 450px)`,

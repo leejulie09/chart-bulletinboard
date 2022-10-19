@@ -1,11 +1,12 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
 import Chart from "chart.js";
-
+import styled from "styled-components";
+import theme from "../../Style/Theme";
 Chart.defaults.global.defaultFontColor = "white";
 function LineChart() {
   return (
-    <div>
+    <Wrapper>
       <Line
         data={{
           labels: ["1994", "2000", "2005", "2010", "2015", "2020"],
@@ -43,8 +44,14 @@ function LineChart() {
           },
         }}
       />
-    </div>
+    </Wrapper>
   );
 }
 
 export default LineChart;
+
+const Wrapper = styled.div`
+  @media ${theme.device.tabletL} {
+    margin-bottom: 50px;
+  }
+`;
