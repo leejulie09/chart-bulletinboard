@@ -48,6 +48,12 @@ function LinkButtonAtom() {
 export default LinkButtonAtom;
 
 const Container = styled.div`
+  @media ${({ theme }) => theme.device.tabletL} {
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+  }
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -62,6 +68,13 @@ const FoldButtonBox = styled.div`
   margin-bottom: ${(props) => props.foldAndSpreadMagin};
 `;
 const LinkButton = styled.div`
+  @media ${({ theme }) => theme.device.tabletL} {
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    margin: 0% 10%;
+  }
   display: flex;
   justify-content: center;
   align-items: center;
@@ -72,12 +85,25 @@ const LinkButton = styled.div`
   color: ${(props) => props.color};
   background-color: ${(props) => props.hover};
   border-radius: 0.3rem;
+
   :hover {
     cursor: pointer;
     background-color: ${({ theme }) => theme.colors.main_backgroundColor};
   }
 `;
 const LinkButtonName = styled.div`
+  @media ${({ theme }) => theme.device.tabletL} {
+    width: 50%;
+    height: 100%;
+    min-height: 100%;
+    margin: 0% 1%;
+  }
+  @media ${({ theme }) => theme.device.tablet} {
+    display: none;
+  }
+  @media ${({ theme }) => theme.device.mobile} {
+    display: none;
+  }
   display: flex;
   justify-content: flex-start;
   align-items: center;
