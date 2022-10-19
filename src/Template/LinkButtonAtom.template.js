@@ -98,6 +98,9 @@ const LinkButtonName = styled.div`
     min-height: 100%;
     margin: 0% 1%;
   }
+  @media ${({ theme }) => theme.device.tablet} {
+    display: none;
+  }
   @media ${({ theme }) => theme.device.mobile} {
     display: none;
   }

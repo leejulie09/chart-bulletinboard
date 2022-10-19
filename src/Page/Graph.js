@@ -3,7 +3,7 @@ import PieChart from "../Component/GraphPageComponent/PieChart";
 import LineChart from "../Component/GraphPageComponent/LineChart";
 import Template from "../Template/Template";
 import styled from "styled-components";
-import theme from "../Style/Theme";
+
 function Graph() {
   return (
     <Template>
@@ -38,7 +38,7 @@ const StandardScoreBox = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 20%;
+  height: 10%;
 `;
 const UserScoreBox = styled.div`
   display: flex;

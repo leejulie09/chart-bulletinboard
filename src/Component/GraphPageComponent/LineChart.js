@@ -37,7 +37,7 @@ function LineChart() {
     }
     setOptions({
       maintainAspectRatio: false,
-      responsive: true,
+      responsive: false,
       title: {
         display: true,
         text: "수능 국어 표준점수",
