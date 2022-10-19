@@ -1,12 +1,13 @@
 import React from "react";
 import { Bar } from "react-chartjs-2";
 import Chart from "chart.js";
-
+import styled from "styled-components";
+import theme from "../../Style/Theme";
 Chart.defaults.global.defaultFontColor = "white";
 
 function BarChart() {
   return (
-    <div>
+    <Wrapper>
       <Bar
         data={{
           labels: ["수학", "국어"],
@@ -47,8 +48,14 @@ function BarChart() {
           },
         }}
       />
-    </div>
+    </Wrapper>
   );
 }
 
 export default BarChart;
+
+const Wrapper = styled.div`
+  @media ${theme.device.tabletL} {
+    margin-bottom: 50px;
+  }
+`;

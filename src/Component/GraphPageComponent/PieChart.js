@@ -1,12 +1,13 @@
 import React from "react";
 import { Pie } from "react-chartjs-2";
 import Chart from "chart.js";
-
+import styled from "styled-components";
+import theme from "../../Style/Theme";
 Chart.defaults.global.defaultFontColor = "white";
 
 function PieChart() {
   return (
-    <div>
+    <Wrapper>
       <Pie
         data={{
           labels: ["문과", "이과"],
@@ -39,8 +40,13 @@ function PieChart() {
           },
         }}
       />
-    </div>
+    </Wrapper>
   );
 }
 
 export default PieChart;
+const Wrapper = styled.div`
+  @media ${theme.device.tabletL} {
+    margin-bottom: 50px;
+  }
+`;
