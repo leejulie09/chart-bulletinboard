@@ -8,9 +8,17 @@ function Graph() {
   return (
     <Template>
       <Wrapper>
-        <BarChart />
-        <PieChart />
-        <LineChart />
+        <StandardScoreBox>
+          <LineChart />
+        </StandardScoreBox>
+        <UserScoreBox>
+          <ScoreCharts>
+            <BarChart />
+          </ScoreCharts>
+          <ScoreCharts>
+            <PieChart />
+          </ScoreCharts>
+        </UserScoreBox>
       </Wrapper>
     </Template>
   );
@@ -19,18 +27,26 @@ function Graph() {
 export default Graph;
 
 const Wrapper = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  margin: 100px 40px;
-  gap: 10%;
-
-  @media (max-width: 1800px) {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-
-  @media ${theme.device.tabletL} {
-    display: grid;
-    grid-template-columns: 1fr;
-  }
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  padding: 5%;
+`;
+const StandardScoreBox = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 20%;
+`;
+const UserScoreBox = styled.div`
+  display: flex;
+  width: 100%;
+  height: auto;
+  margin-top: 5%;
+`;
+const ScoreCharts = styled.div`
+  width: 50%;
+  height: 100%;
 `;

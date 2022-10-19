@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
 import Chart from "chart.js";
 import styled from "styled-components";
-import theme from "../../Style/Theme";
+
 Chart.defaults.global.defaultFontColor = "white";
 function LineChart() {
   const [eduData, setEduData] = useState([]);
@@ -40,7 +40,7 @@ function LineChart() {
       responsive: true,
       title: {
         display: true,
-        text: "수능 국어 표준점수 분포도",
+        text: "수능 국어 표준점수",
         fontSize: 22,
       },
       legend: {
@@ -54,7 +54,7 @@ function LineChart() {
             ticks: { min: 17000 },
             scaleLabel: {
               display: true,
-              labelString: "비율(퍼센트)",
+              labelString: "인원 수",
             },
           },
         ],
@@ -72,7 +72,8 @@ function LineChart() {
 export default LineChart;
 
 const Wrapper = styled.div`
-  @media ${theme.device.tabletL} {
-    margin-bottom: 50px;
-  }
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 `;

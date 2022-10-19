@@ -9,6 +9,7 @@ function Template({ children }) {
 
   return (
     <Container>
+      <SideBarEmptyBox foldAndSpreadWidth={foldAndSpread ? "4rem" : "14rem"} />
       <SideBarContainer foldAndSpreadWidth={foldAndSpread ? "4rem" : "14rem"}>
         <SideBarWrapper>
           <LogoBox>
@@ -28,11 +29,33 @@ function Template({ children }) {
 export default Template;
 
 const Container = styled.div`
+  @media ${({ theme }) => theme.device.tabletL} {
+    flex-direction: column;
+  }
   display: flex;
   width: 100vw;
   height: 100vh;
 `;
 const SideBarContainer = styled.div`
+  @media ${({ theme }) => theme.device.tabletL} {
+    width: 100%;
+    height: 10%;
+    min-height: 10%;
+  }
+  position: fixed;
+  width: ${(props) => props.foldAndSpreadWidth};
+  min-width: ${(props) => props.foldAndSpreadWidth};
+  height: 100vh;
+  min-height: 100vh;
+  background-color: ${({ theme }) => theme.colors.sidebar_backgroundColor};
+  border-right: ${({ theme }) => theme.stlyeSet.border};
+`;
+const SideBarEmptyBox = styled.div`
+  @media ${({ theme }) => theme.device.tabletL} {
+    width: 100%;
+    height: 10%;
+    min-height: 10%;
+  }
   width: ${(props) => props.foldAndSpreadWidth};
   min-width: ${(props) => props.foldAndSpreadWidth};
   height: 100vh;
@@ -41,6 +64,12 @@ const SideBarContainer = styled.div`
   border-right: ${({ theme }) => theme.stlyeSet.border};
 `;
 const SideBarWrapper = styled.div`
+  @media ${({ theme }) => theme.device.tabletL} {
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+  }
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -48,6 +77,12 @@ const SideBarWrapper = styled.div`
   min-height: 40rem;
 `;
 const LogoBox = styled.div`
+  @media ${({ theme }) => theme.device.tabletL} {
+    width: 25%;
+    height: 100%;
+    min-height: 100%;
+    padding: 0%;
+  }
   display: flex;
   justify-content: center;
   align-items: center;
@@ -56,6 +91,16 @@ const LogoBox = styled.div`
   padding: 5%;
 `;
 const LinkButtonBox = styled.div`
+  @media ${({ theme }) => theme.device.tabletL} {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 65%;
+    height: 100%;
+    min-height: 100%;
+    padding: 0%;
+    border: none;
+  }
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -65,6 +110,11 @@ const LinkButtonBox = styled.div`
   border-bottom: ${({ theme }) => theme.stlyeSet.border};
 `;
 const UserInformationBox = styled.div`
+  @media ${({ theme }) => theme.device.tabletL} {
+    width: 10%;
+    height: 100%;
+    min-height: 100%;
+  }
   width: 100%;
   height: 7%;
 `;

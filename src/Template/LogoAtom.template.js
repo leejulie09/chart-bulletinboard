@@ -37,6 +37,8 @@ function LogoAtom() {
 export default LogoAtom;
 
 const Container = styled.div`
+  @media ${({ theme }) => theme.device.tabletL} {
+  }
   display: flex;
   justify-content: center;
   align-items: center;
@@ -44,6 +46,16 @@ const Container = styled.div`
   height: 100%;
 `;
 const LogoImg = styled.div`
+  @media ${({ theme }) => theme.device.tabletL} {
+    width: 9rem;
+    height: 100%;
+  }
+  @media only screen and (max-height: 720px) {
+    width: 5rem;
+  }
+  @media only screen and (max-height: 600px) {
+    width: 4rem;
+  }
   width: ${(props) => props.foldAndSpreadWidth};
   height: 100%;
   background-image: url(${(props) => props.backgroundURL});
@@ -51,6 +63,9 @@ const LogoImg = styled.div`
   background-size: cover;
 `;
 const LogoName = styled.div`
+  @media ${({ theme }) => theme.device.tabletL} {
+    display: none;
+  }
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -61,6 +76,9 @@ const LogoName = styled.div`
   font-weight: ${({ theme }) => theme.fontWeight.bold};
 `;
 const FoldButtonBox = styled.div`
+  @media ${({ theme }) => theme.device.tabletL} {
+    display: none;
+  }
   display: flex;
   justify-content: center;
   align-items: center;
