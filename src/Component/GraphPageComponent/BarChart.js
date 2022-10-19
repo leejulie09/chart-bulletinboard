@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Bar } from "react-chartjs-2";
 import Chart from "chart.js";
 import styled from "styled-components";
@@ -6,6 +6,20 @@ import theme from "../../Style/Theme";
 Chart.defaults.global.defaultFontColor = "white";
 
 function BarChart() {
+  const [eduData, setEduData] = useState();
+
+  const request = async () => {
+    const res = await fetch(
+      "https://api.odcloud.kr/api/15080193/v1/uddi:9e0dbb8b-6eb7-4f72-ab7b-8d74844c2dc5?page=1&perPage=8&serviceKey=tOKMZ%2FmDsBNm%2FcPuRjc1o8dcTXlINXbXWOZuqonOeaTFJWG2pZezpQVsyLeAd03MX71QZSX3%2FSzNkpHSPGXJGg%3D%3D"
+    );
+    const json = await res.json();
+    console.log(json.data);
+    // setEduData(json.)
+  };
+  useEffect(() => {
+    request();
+  }, []);
+
   return (
     <Wrapper>
       <Bar
