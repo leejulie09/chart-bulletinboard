@@ -7,7 +7,32 @@ Chart.defaults.global.defaultFontColor = "white";
 function LineChart() {
   const [eduData, setEduData] = useState([]);
   const [graphData, setGraphData] = useState();
-  const [options, setOptions] = useState();
+
+  const options = {
+    maintainAspectRatio: false,
+    responsive: false,
+    title: {
+      display: true,
+      text: "수능 국어 표준점수",
+      fontSize: 22,
+    },
+    legend: {
+      labels: {
+        fontSize: 18,
+      },
+    },
+    scales: {
+      yAxes: [
+        {
+          ticks: { min: 17000 },
+          scaleLabel: {
+            display: true,
+            labelString: "인원 수",
+          },
+        },
+      ],
+    },
+  };
 
   useEffect(() => {
     async function fetchEduData() {
@@ -35,31 +60,6 @@ function LineChart() {
         ],
       });
     }
-    setOptions({
-      maintainAspectRatio: false,
-      responsive: false,
-      title: {
-        display: true,
-        text: "수능 국어 표준점수",
-        fontSize: 22,
-      },
-      legend: {
-        labels: {
-          fontSize: 18,
-        },
-      },
-      scales: {
-        yAxes: [
-          {
-            ticks: { min: 17000 },
-            scaleLabel: {
-              display: true,
-              labelString: "인원 수",
-            },
-          },
-        ],
-      },
-    });
   }, [eduData]);
 
   return (
