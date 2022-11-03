@@ -7,22 +7,35 @@ import "antd/dist/antd.min.css";
 import { useNavigate } from "react-router-dom";
 
 const Board = () => {
-  const [boardData, setBoardData] = useState("");
+  const [boardData, setBoardData] = useState([]);
+
   const navigate = useNavigate();
+
   useEffect(() => {
-    axios("/mockData.json").then((res) => setBoardData(res.data));
+    axios("https://chart-bulletinboard-default-rtdb.firebaseio.com/.json").then(
+      (res) => {
+        const userData = [];
+        let index = 1;
+        for (let id in res.data) {
+          userData.push({ ...res.data[id], id: id, key: index });
+          index++;
+        }
+
+        setBoardData(userData);
+      }
+    );
   }, []);
+
   return (
     <Wrap>
       <TitleArea>
         <Title>게시판</Title>
+
         <PostWrap>
           <PostBtn onClick={() => navigate("./post")}>글쓰기</PostBtn>
         </PostWrap>
       </TitleArea>
-      {console.log(boardData)}
-      {console.log(dataSource)}
-      <BeTable dataSource={boardData} columns={columns} rowSelection="3" />;
+      <BeTable dataSource={boardData} columns={columns} rowSelection="3" />
     </Wrap>
   );
 };
@@ -92,7 +105,7 @@ const columns = [
   {
     title: "No",
     dataIndex: "key",
-    key: "no",
+    key: "key",
   },
   {
     title: "제목",
@@ -100,14 +113,10 @@ const columns = [
     key: "title",
     width: "40%",
   },
-  {
-    title: "글쓴이",
-    dataIndex: "writer",
-    key: "writer",
-  },
+
   {
     title: "날짜",
-    dataIndex: "dateTime",
-    key: "dateTime",
+    dataIndex: "writeDate",
+    key: "writeDate",
   },
 ];

@@ -4,24 +4,43 @@ import styled from "styled-components";
 import { useEffect, useState } from "react";
 import { Button } from "antd";
 import moment from "moment";
+import axios from "axios";
+import firebase from "../firebase";
+import { useNavigate } from "react-router-dom";
 
 const { TextArea } = Input;
 
 function Post() {
   const [postData, setPostData] = useState({
+    id: "",
     title: "",
     content: "",
     writeDate: "",
   });
 
-  const onClick = (e) => {
-    const date = new Date();
+  const navigate = useNavigate();
+
+  let date = new Date();
+
+  useEffect(() => {
+    postData.writeDate &&
+      axios
+        .post(
+          `https://chart-bulletinboard-default-rtdb.firebaseio.com/.json`,
+          postData
+        )
+        .then(() => navigate("/poster"))
+        .catch(() => alert("등록에 실패하였습니다."));
+  }, [postData.writeDate]);
+
+  const onClick = async (e) => {
+    date = new Date();
+    const nowDate = moment(date).format("YYYY-MM-DD-HH시mm분ss초");
+
     setPostData({
       ...postData,
-      writeDate: moment(date).format("YYYY-MM-DD-HH시mm분ss초"),
+      writeDate: nowDate,
     });
-    console.log(postData);
-    // axios 추가 예정
   };
 
   const onChange = (e) => {
@@ -32,6 +51,7 @@ function Post() {
   return (
     <Template>
       <Wrap>
+        {console.log(postData)}
         <Container>
           <Title>글쓰기</Title>
           <InputArea>
